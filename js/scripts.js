@@ -7,5 +7,7 @@ let pokemonList = [
 //loop that prints all pokemonList items names and heights to the DOM
 for (let i=0; i < pokemonList.length; i++) {
     document.write(`${pokemonList[i].name} (height: ${pokemonList[i].height}) `);
+    if (pokemonList[i].height >= 1.5) {
+        document.write(" -Wow, that's big!")
     };
 };
