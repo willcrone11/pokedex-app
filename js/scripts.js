@@ -3,3 +3,9 @@ let pokemonList = [
     {name: 'Ivysaur', height: 1, types: ['grass', 'poison']},
     {name: 'Venusaur', height: 2, types: ['grass', 'poison']}
 ];
+
+//loop that prints all pokemonList items names and heights to the DOM
+for (let i=0; i < pokemonList.length; i++) {
+    document.write(`${pokemonList[i].name} (height: ${pokemonList[i].height}) `);
+    };
+};
