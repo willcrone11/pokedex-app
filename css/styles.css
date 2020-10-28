@@ -1,0 +1,15 @@
+.button-class {
+    border: none;
+    font-size: 16px;
+    background-color: #0000ff;
+    color: #ffffff;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    margin: 4px 2px;
+    padding: 16px 32px;
+    border-radius: 3px;
+    border-bottom: 2px solid #000000;
+    transition-duration: 0.2s;
+    transition-property: opacity;
+}
