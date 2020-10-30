@@ -7,9 +7,6 @@ let pokemonRepository = (function () {
     function add(pokemon) {
         pokemonList.push(pokemon);
     }
-    function showDetails(pokemon) {
-        console.log(pokemon.name);
-    }
     function addListItem(pokemon) {
         let pokemonList = document.querySelector('.pokemon-list');
         let listPokemon = document.createElement('li');
@@ -47,6 +44,11 @@ let pokemonRepository = (function () {
         item.types = details.types;
         }).catch(function (e) {
         console.error(e);
+        });
+    }
+    function showDetails(pokemon) {
+        loadDetails(pokemon).then(function () {
+        console.log(pokemon);
         });
     }
     return {
