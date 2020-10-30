@@ -1,9 +1,6 @@
 let pokemonRepository = (function () {
-    let pokemonList = [
-        {name: 'Bulbasaur', height: .7, types: ['grass', 'poison']},
-        {name: 'Ivysaur', height: 1, types: ['grass', 'poison']},
-        {name: 'Venusaur', height: 2, types: ['grass', 'poison']}
-    ];
+    let pokemonList = [];
+    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
     function getAll() {
         return pokemonList;
     }
@@ -32,8 +29,8 @@ let pokemonRepository = (function () {
         showDetails: showDetails
     };
 })();
-
-//forEach loop that prints all pokemonList items names and heights to the DOM
-pokemonRepository.getAll().forEach(function(pokemon) {
+pokemonRepository.loadList().then(function() {
+    pokemonRepository.getAll().forEach(function(pokemon) {
     pokemonRepository.addListItem(pokemon);
+    });
 });
