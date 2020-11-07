@@ -3,14 +3,17 @@ let pokemonRepository = (function () {
   let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
   
+  //returns list of pokemon loaded from api
   function getAll() {
     return pokemonList;
   }
   
+  //adds api info to empty pokemonList array (via loadList function)
   function add(pokemon) {
     pokemonList.push(pokemon);
   }
   
+  //creates list of buttons with each button containing a single pokemon
   function addListItem(pokemon) {
     let pokemonList = document.querySelector('.pokemon-list');
     let listPokemon = document.createElement('li');
@@ -24,6 +27,7 @@ let pokemonRepository = (function () {
     });
   }
   
+  //loads -pokemon list- from api and translates to javascript from json
   function loadList() {
     return fetch(apiUrl).then(function (response) {
     return response.json();
@@ -40,6 +44,7 @@ let pokemonRepository = (function () {
     })
   }
   
+  //loads -details- from api and translates to javascript from json
   function loadDetails(item) {
     let url = item.detailsUrl;
     return fetch(url).then(function (response) {
@@ -53,29 +58,36 @@ let pokemonRepository = (function () {
     });
   }
   
+  //function that loads pokemon data from api and prints them inside the modal
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function () {
     showModal(pokemon.name, `Height: ${pokemon.height} `, pokemon.imageUrl);
     });
   }
+  
   let modalContainer = document.querySelector('#modal-container');
 
+  //function containing modal layout and elements
   function showModal(title, text, image) {
     modalContainer.innerHTML = '';
     let modal = document.createElement('div');
     modal.classList.add('modal');
     
+    //adds close button to modal
     let closeButtonElement = document.createElement('button');
     closeButtonElement.classList.add('modal-close');
     closeButtonElement.innerText = 'Close';
     closeButtonElement.addEventListener('click', hideModal);
     
+    //header with pokemon name
     let titleElement = document.createElement('h1');
     titleElement.innerText = title;
     
+    //text with pokemon height
     let contentElement = document.createElement('p');
     contentElement.innerText = text;
 
+    //picture of pokemon
     let imageElement = document.createElement('img');
     imageElement.src = image
     
@@ -92,15 +104,15 @@ let pokemonRepository = (function () {
     modalContainer.classList.remove('is-visible');
   }
   
+  //hides modal when escape key is clicked
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
       hideModal();  
     }
   });
   
+  //hides modal when it is clicked on
   modalContainer.addEventListener('click', (e) => {
-      // Since this is also triggered when clicking INSIDE the modal
-      // We only want to close if the user clicks directly on the overlay
     let target = e.target;
     if (target === modalContainer) {
       hideModal();
@@ -119,6 +131,7 @@ let pokemonRepository = (function () {
   };
 })();
 
+//for each loop that prints all pokemon from api list to the DOM
 pokemonRepository.loadList().then(function() {
   pokemonRepository.getAll().forEach(function(pokemon) {
   pokemonRepository.addListItem(pokemon);
