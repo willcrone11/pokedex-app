@@ -64,42 +64,35 @@ let pokemonRepository = (function () {
   //function that loads pokemon data from api and prints them inside the modal
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function () {
-    showModal(pokemon.name, `Height: ${pokemon.height} `, pokemon.imageUrl);
+    showModal(pokemon);
     });
   }
   
   let modalContainer = document.querySelector('#modal-container');
 
   //function containing modal layout and elements
-  function showModal(title, text, image) {
-    modalContainer.innerHTML = '';
-    let modal = document.createElement('div');
-    modal.classList.add('modal');
-    
-    //adds close button to modal
-    let closeButtonElement = document.createElement('button');
-    closeButtonElement.classList.add('modal-close');
-    closeButtonElement.innerText = 'Close';
-    closeButtonElement.addEventListener('click', hideModal);
-    
-    //header with pokemon name
-    let titleElement = document.createElement('h1');
-    titleElement.innerText = title;
-    
-    //text with pokemon height
-    let contentElement = document.createElement('p');
-    contentElement.innerText = text;
+  function showModal(text) {
+    //defines body elements of modal
+    let modalTitle = document.querySelector('.modal-title');
+    modalTitle.innerText = text.name;
+    let modalBody = document.querySelector('.modal-body');
+    modalBody.innerHTML = '';
+    let modalFooter = document.querySelector('.modal-footer')
+    let modalHeader = document.querySelector('.modal-header');
+    let closeX = document.querySelector('.close');
+    closeX.addEventListener('click', hideModal);
+    let closeButton = document.querySelector('.btn-secondary');
+    closeButton.addEventListener('click', hideModal);
 
-    //picture of pokemon
+    //defines name, height, and types elements in modal
     let imageElement = document.createElement('img');
-    imageElement.src = image
-    
-    modal.appendChild(closeButtonElement);
-    modal.appendChild(titleElement);
-    modal.appendChild(contentElement);
-    modal.appendChild(imageElement);
-    modalContainer.appendChild(modal);
-    
+    imageElement.src = text.imageUrl;
+
+    let heightElement = document.createElement('p');
+    heightElement.innerText = 'Height: ' + text.height;
+
+    let typesElement = document.createElement('p');
+    typesElement.innerText = 'Types: ' + text.types;
 
     modalHeader.appendChild(closeX);
     modalFooter.appendChild(closeButton);
