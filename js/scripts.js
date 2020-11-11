@@ -52,7 +52,10 @@ let pokemonRepository = (function () {
     }).then(function (details) {
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
-      item.types = details.types;
+      item.types = [];
+        for (let i = 0; i < details.types.length; i++) {
+          item.types.push(' ' + details.types[i].type.name);
+        }
     }).catch(function (e) {
       console.error(e);
     });
@@ -97,10 +100,17 @@ let pokemonRepository = (function () {
     modal.appendChild(imageElement);
     modalContainer.appendChild(modal);
     
-    modalContainer.classList.add('is-visible');
-    }
+
+    modalHeader.appendChild(closeX);
+    modalFooter.appendChild(closeButton);
+    modalBody.appendChild(imageElement);
+    modalBody.appendChild(heightElement);
+    modalBody.appendChild(typesElement);
   
-    function hideModal() {
+    modalContainer.classList.add('is-visible');
+  }
+  
+  function hideModal() {
     modalContainer.classList.remove('is-visible');
   }
   
