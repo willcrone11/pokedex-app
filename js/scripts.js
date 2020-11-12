@@ -57,6 +57,11 @@ let pokemonRepository = (function () {
         for (let i = 0; i < details.types.length; i++) {
           item.types.push(' ' + details.types[i].type.name);
         }
+      item.weight = details.weight;
+      item.abilities = [];
+        for (let i = 0; i < details.abilities.length; i++) {
+          item.abilities.push(' ' + details.abilities[i].ability.name);
+        }
     }).catch(function (e) {
       console.error(e);
     });
@@ -92,14 +97,22 @@ let pokemonRepository = (function () {
     let heightElement = document.createElement('p');
     heightElement.innerText = 'Height: ' + text.height;
 
+    let weightElement = document.createElement('p');
+    weightElement.innerText = 'Weight: ' + text.weight;
+
     let typesElement = document.createElement('p');
     typesElement.innerText = 'Types: ' + text.types;
+
+    let abilitiesElement = document.createElement('p');
+    abilitiesElement.innerText = 'Abilities: ' + text.abilities;
 
     modalHeader.appendChild(closeX);
     modalFooter.appendChild(closeButton);
     modalBody.appendChild(imageElement);
     modalBody.appendChild(heightElement);
+    modalBody.appendChild(weightElement);
     modalBody.appendChild(typesElement);
+    modalBody.appendChild(abilitiesElement);
   
     modalContainer.classList.add('is-visible');
   }
