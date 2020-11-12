@@ -3,7 +3,7 @@
     font-family: fantasy;
     text-transform: capitalize;
     font-size: 16px;
-    background-color: #0000ff;
+    background-color: #ff5353;
     color: #ffffff;
     text-decoration: none;
     text-align: center;
@@ -51,6 +51,11 @@
     background: #fff;
     padding: 15px;
     width: 100%;
-    max-width: 700px;
+    max-width: none;
     text-align: left;
+}
+
+.btn {
+    color: #ffffff;
+    border-color: #ffffff;
 }
