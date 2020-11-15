@@ -1,7 +1,7 @@
 let pokemonRepository = (function () {
   
   let pokemonList = [];
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=1050';
   
   //returns list of pokemon loaded from api
   function getAll() {
@@ -135,7 +135,7 @@ let pokemonRepository = (function () {
       hideModal();
     }
   });
-  
+
   return {
     getAll: getAll,
     add: add,
