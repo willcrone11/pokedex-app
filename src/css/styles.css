@@ -58,6 +58,12 @@
 .btn {
     color: #ffffff;
     border-color: #ffffff;
+}
+
+#pokemon-logo {
+    max-width: 100px;
+}
+
 body {
     background-image: url(../../img/pokemon-background-image.jpeg);
 }
