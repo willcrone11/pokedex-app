@@ -69,10 +69,11 @@ body {
 }
 
 .list-container {
-    background-color: rgb(54, 51, 51);
+    background-color: #343A40;
     max-width: 300px;
+    margin-top: 20px;
 }
 
 h1, h6 {
-    color: rgb(255, 248, 220);
+    color: #f8f7f2;
 }
