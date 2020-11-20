@@ -58,4 +58,8 @@
 .btn {
     color: #ffffff;
     border-color: #ffffff;
+body {
+    background-image: url(../../img/pokemon-background-image.jpeg);
+}
+
 }
