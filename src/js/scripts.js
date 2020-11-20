@@ -13,6 +13,29 @@ let pokemonRepository = (function () {
     pokemonList.push(pokemon);
   }
   
+  // Search database by name, needs to be IIFE
+  (function search() {
+    // Triggers filter search as user types
+
+    document.querySelector('#search').addEventListener('input', searchFunction);
+
+    function searchFunction() {
+      // User search input
+      let search = $('#search').val().toLowerCase();
+
+      // Makes array from the list hides non-matching elements
+      let arr = Array.from($('.pokemon-list-item'));
+
+      arr.forEach((elem) => {
+        if (search.length === 0) {
+          elem.style.display = 'block';
+        } else if (!elem.innerText.toLowerCase().includes(search)) {
+          elem.style.display = 'none';
+        }
+      });
+    }
+  })();
+
   //creates list of buttons with each button containing a single pokemon
   function addListItem(pokemon) {
     let pokemonList = document.querySelector('.pokemon-list');
@@ -20,7 +43,7 @@ let pokemonRepository = (function () {
     listPokemon.classList.add('.group-list-item');
     let button = document.createElement('button');
     button.innerText = pokemon.name;
-    button.classList.add('button-class');
+    button.classList.add('button-class', 'pokemon-list-item');
     listPokemon.appendChild(button);
     pokemonList.appendChild(listPokemon);
     button.addEventListener('click', function (event) {
