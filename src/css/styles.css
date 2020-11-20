@@ -17,6 +17,11 @@
     transition-property: opacity;
 }
 
+.button-class:hover, .button-class:focus {
+    cursor: pointer;
+    opacity: .8;
+}
+
 #modal-container {
     display: none;
 }
