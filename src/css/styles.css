@@ -29,7 +29,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: #00000080;
     font-family: 'Architects Daughter', cursive;
     text-transform: Capitalize;
   
@@ -75,6 +75,14 @@ body {
     font-family: 'Architects Daughter', cursive;
 }
 
-h1, h6 {
+h1, h2, h6, p {
     color: #f8f7f2;
+}
+
+.about-container {
+    background-color: #343A40;
+    max-width: 600px;
+    margin-top: 20px;
+    font-family: 'Architects Daughter', cursive;
+    padding-bottom: 150px;
 }
