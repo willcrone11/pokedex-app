@@ -19,6 +19,11 @@
     transition-property: opacity;
 }
 
+.button-class:hover, .button-class:focus {
+    cursor: pointer;
+    opacity: .8;
+}
+
 #modal-container {
     display: none;
 }
@@ -32,7 +37,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: #00000080;
     font-family: 'Architects Daughter', cursive;
     text-transform: Capitalize;
   
@@ -70,14 +75,24 @@
 }
 
 body {
-    background-image: url(../../img/pokemon-background-image.jpeg);
+    background-image: url(../img/pokemon-background-image.jpeg);
 }
 
 .list-container {
-    background-color: rgb(54, 51, 51);
+    background-color: #343A40;
     max-width: 300px;
+    margin-top: 20px;
+    font-family: 'Architects Daughter', cursive;
 }
 
 h1, h6 {
-    color: rgb(255, 248, 220);
+    color: #f8f7f2;
+}
+
+.about-container {
+    background-color: #343A40;
+    max-width: 600px;
+    margin-top: 20px;
+    font-family: 'Architects Daughter', cursive;
+    padding-bottom: 150px;
 }
