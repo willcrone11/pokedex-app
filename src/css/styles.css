@@ -92,3 +92,7 @@ h1, h6 {
     padding-bottom: 100px;
     padding-top: 50px;
 }
+
+#pokedex-logo {
+    max-width: 250px;
+}
